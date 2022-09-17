@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 
 // custom componenets
 import CustomForm from "./components/CustomForm";
@@ -7,9 +6,16 @@ import CustomForm from "./components/CustomForm";
 function App() {
   const [count, setCount] = useState(0);
 
+  const addTask = (task) => {
+    console.log(task);
+  };
+
   return (
     <div className="container">
-      <CustomForm />
+      <header>
+        <h1>My Task List</h1>
+      </header>
+      <CustomForm addTask={addTask} />
     </div>
   );
 }
