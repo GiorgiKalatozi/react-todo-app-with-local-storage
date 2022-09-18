@@ -18,7 +18,7 @@ const TaskItem = ({ task }) => {
     <li className={styles.task}>
       <div className={styles["task-group"]}>
         <input
-          className={styles.checkBox}
+          className={styles.checkbox}
           type="checkbox"
           checked={isChecked}
           onChange={handleCheckboxChange}
