@@ -2,17 +2,18 @@ import React, { useState } from "react";
 
 // styles
 import styles from "./TaskItem.module.css";
-
 // library imports
 import { CheckIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { PencilSquareIcon } from "@heroicons/react/24/outline";
 
-const TaskItem = ({ task }) => {
+const TaskItem = ({ task, deleteTask }) => {
   const [isChecked, setIsChecked] = useState(task.checked);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
+
+  console.log(task, "task");
 
   return (
     <li className={styles.task}>
@@ -44,7 +45,7 @@ const TaskItem = ({ task }) => {
         <button
           className={`btn ${styles.delete}`}
           aria-label={`Delete ${task.name} Task`}
-          //  onClick={}
+          onClick={() => deleteTask(task.id)}
         >
           <TrashIcon width={24} height={24} />
         </button>
