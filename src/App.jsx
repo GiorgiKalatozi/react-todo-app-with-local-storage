@@ -15,13 +15,27 @@ function App() {
     setTasks((prevState) => prevState.filter((task) => task.id !== id));
   };
 
+  const updateTask = (id) => {
+    setTasks((prevState) =>
+      prevState.map((task) =>
+        task.id === id ? { ...task, checked: !task.checked } : task
+      )
+    );
+  };
+
   return (
     <div className="container">
       <header>
         <h1>My Task List</h1>
       </header>
       <CustomForm addTask={addTask} />
-      {tasks && <TaskList deleteTask={deleteTask} tasks={tasks} />}
+      {tasks && (
+        <TaskList
+          updateTask={updateTask}
+          deleteTask={deleteTask}
+          tasks={tasks}
+        />
+      )}
     </div>
   );
 }
