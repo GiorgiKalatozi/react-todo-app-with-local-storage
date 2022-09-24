@@ -14,6 +14,8 @@ const TaskItem = ({ task, deleteTask, updateTask, enterEditMode }) => {
     updateTask(task.id);
   };
 
+  console.log(task);
+
   return (
     <li className={styles.task}>
       <div className={styles["task-group"]}>

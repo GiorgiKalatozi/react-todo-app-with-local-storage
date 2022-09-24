@@ -4,12 +4,13 @@ import React, { useState } from "react";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 
 const EditForm = ({ editedTask, updateTask }) => {
-  const [updatedTaskName, setUpdatedTaskName] = useState(editedTask?.name);
+  const [updatedTaskName, setUpdatedTaskName] = useState(editedTask.name);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // updateTask()
+    updateTask({ ...editedTask, name: updatedTaskName });
   };
+
   return (
     <div
       role="dialog"
